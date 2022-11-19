@@ -1,8 +1,25 @@
+import { useRouter } from 'next/router'
+import { FormEvent, useState } from 'react'
+
 export default function Searchbar() {
+  const router = useRouter()
+  const [searchValue, setSearchValue] = useState('')
+
+  function onSubmitHandler(e: FormEvent) {
+    e.preventDefault()
+    router.push(`/search?q=${searchValue}`)
+  }
+
   return (
-    <form className='flex w-11/12 max-w-3xl relative my-8'>
+    <form
+      onSubmit={onSubmitHandler}
+      className='flex w-11/12 max-w-3xl relative my-8'
+    >
       <input
         type='text'
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        placeholder='Search for movies...'
         className='flex-1 px-2 rounded border focus:border-zinc-400 focus:outline-none'
       />
       <button
