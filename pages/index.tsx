@@ -2,6 +2,7 @@ import WebLogo from '../public/logo.png'
 import Image from 'next/image'
 import Searchbar from '../components/Searchbar'
 import CardList from '../components/CardList'
+import ItemList from '../components/ItemList'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Searchbar />
         <CardList />
         <CardList />
+        <ItemList title='Popular from TMDB' />
       </div>
     </div>
   )
