@@ -1,7 +1,47 @@
-export default function Item({ number }: { number: number }) {
+import type { TmdbMovieI } from '../types/tmdb'
+import Image from 'next/image'
+import { useState } from 'react'
+import Link from 'next/link'
+
+export default function Item({ movie }: { movie: TmdbMovieI }) {
+  const [isHovering, setIsHovered] = useState(false)
+  const onMouseEnter = () => setIsHovered(true)
+  const onMouseLeave = () => setIsHovered(false)
+
   return (
-    <div className='bg-white w-[210px] h-[315px] rounded flex items-center justify-center'>
-      {number}
-    </div>
+    <Link href={`/movies/${movie.id}`}>
+      <div
+        className='flex items-center justify-center shadow-lg border border-zinc-800 rounded-md'
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        {!isHovering ? (
+          <div className='w-full h-full'>
+            <Image
+              className='rounded-md'
+              src={movie.poster_path}
+              alt={movie.title}
+              width={210}
+              height={315}
+            />
+          </div>
+        ) : (
+          <div className='w-full h-full relative overflow-hidden rounded-md'>
+            <Image
+              className='rounded-md opacity-30 scale-105 duration-300'
+              src={movie.poster_path}
+              alt={movie.title}
+              width={210}
+              height={315}
+            />
+            <div className='absolute flex items-center justify-center w-full h-full top-0'>
+              <span className='text-white font-hover text-2xl text-center'>
+                {movie.title}
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
+    </Link>
   )
 }
