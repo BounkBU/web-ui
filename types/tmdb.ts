@@ -7,3 +7,18 @@ export interface TmdbMovieI {
 export interface ITmdbMovieFilter {
   page: number
 }
+
+export interface ITmdbMovieDetailFilter {
+  id: number
+}
+
+export interface TmdbMovieDetailI {
+  tmdb_id: number
+  title: string
+  backdrop_path: string
+  genres: string
+  overview: string
+  image_path: string
+  release_date: string
+  rating: number
+}
