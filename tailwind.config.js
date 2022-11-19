@@ -34,7 +34,9 @@ module.exports = {
       video: '#042443',
       whitesmoke: '#f5f5f5',
     },
-    fontFamily: {},
+    fontFamily: {
+      hover: 'Oswald, sans-serif',
+    },
     screens: {
       xs: '400px',
       sm: '640px',
