@@ -3,3 +3,7 @@ export interface TmdbMovieI {
   poster_path: string
   title: string
 }
+
+export interface ITmdbMovieFilter {
+  page: number
+}

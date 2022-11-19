@@ -14,10 +14,10 @@ export default function Home() {
 
   useEffect(() => {
     async function onFetchTmdbMovies() {
-      dispatch(fetchTmdbMovies())
+      dispatch(fetchTmdbMovies({ page: 1 }))
     }
     onFetchTmdbMovies()
-  }, [])
+  }, [dispatch])
 
   return (
     <div className='min-h-screen bg-zinc-900'>

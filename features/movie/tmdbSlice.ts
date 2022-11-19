@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../../app/store'
 import client from '../../client'
-import type { TmdbMovieI } from '../../types/tmdb'
+import type { ITmdbMovieFilter, TmdbMovieI } from '../../types/tmdb'
 
 interface ITmdbMovieSlice {
   movies: TmdbMovieI[]
@@ -13,8 +13,12 @@ const initialState: ITmdbMovieSlice = {
 
 export const fetchTmdbMovies = createAsyncThunk(
   'movie/fetchTmdbMovies',
-  async () => {
-    const { data } = await client.get<TmdbMovieI[]>('/tmdb/movies')
+  async ({ page }: ITmdbMovieFilter) => {
+    const { data } = await client.get<TmdbMovieI[]>('/tmdb/movies', {
+      params: {
+        page: page,
+      },
+    })
     return data
   },
 )
