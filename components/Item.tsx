@@ -9,7 +9,7 @@ export default function Item({ movie }: { movie: TmdbMovieI }) {
   const onMouseLeave = () => setIsHovered(false)
 
   return (
-    <Link href={`/movies/${movie.id}`}>
+    <Link href={`/movie/${movie.id}`}>
       <div
         className='flex items-center justify-center shadow-lg border border-zinc-800 rounded-md'
         onMouseEnter={onMouseEnter}
