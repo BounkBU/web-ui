@@ -28,7 +28,7 @@ export default function Searchbar() {
       >
         SEARCH
       </button>
-      <div className='search-results absolute w-full bg-zinc-700 max-h-72 top-12 rounded overflow-y-auto z-10'></div>
+      <div className='search-results absolute w-full bg-zinc-700 max-h-96 top-12 rounded overflow-y-auto z-10'></div>
     </form>
   )
 }
