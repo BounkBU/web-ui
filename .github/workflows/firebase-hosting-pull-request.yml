@@ -2,16 +2,27 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on PR
-'on': pull_request
+'on': pull_request_target
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Checkout to the repository
+        uses: actions/checkout@v2
+      - name: Set up NodeJS environment
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install Yarn
+        run: npm install --global yarn
+      - name: Install Dependency
+        run: yarn install --frozen-lockfile
+      - name: Build Next.js project
+        run: yarn build
+      - name: 'Deploy to Production channel'
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DOONUNGFANGPLENG }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HUDCHEWCHATTY }}'
           projectId: doonungfangpleng
