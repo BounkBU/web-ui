@@ -1,9 +1,15 @@
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
 
-export default function Searchbar() {
+export default function Searchbar({
+  defaultValue,
+  disabled,
+}: {
+  defaultValue?: string
+  disabled?: boolean
+}) {
   const router = useRouter()
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState(defaultValue || '')
 
   function onSubmitHandler(e: FormEvent) {
     e.preventDefault()
@@ -17,6 +23,7 @@ export default function Searchbar() {
     >
       <input
         type='text'
+        disabled={disabled}
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         placeholder='Search for movies...'
@@ -24,6 +31,7 @@ export default function Searchbar() {
       />
       <button
         type='submit'
+        disabled={disabled}
         className='border border-zinc-400 text-white p-2 rounded ml-3'
       >
         SEARCH
