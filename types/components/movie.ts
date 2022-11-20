@@ -5,3 +5,15 @@ export interface MovieListProps {
   movies: TmdbI[]
   isMovie: boolean
 }
+
+export interface Result {
+  topic: string
+  movies: Movie[]
+}
+
+export interface Movie {
+  id: number
+  title: string
+  poster_path: string
+  isMovie: boolean
+}
