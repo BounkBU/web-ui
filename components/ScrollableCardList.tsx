@@ -1,4 +1,4 @@
-import Card from './Card'
+import ScrollableCard from './ScrollableCard'
 import Slider from 'react-slick'
 import { sliderSettings } from '../config'
 
@@ -13,7 +13,7 @@ export default function CardList() {
       <div className='mt-4'>
         <Slider {...sliderSettings}>
           {sampleArray.map((el) => (
-            <Card key={el} number={el} />
+            <ScrollableCard key={el} number={el} />
           ))}
         </Slider>
       </div>

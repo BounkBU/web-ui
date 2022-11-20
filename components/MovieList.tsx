@@ -1,5 +1,5 @@
 import type { ItemListProps } from '../types/components/item'
-import Item from './Item'
+import MovieCard from './MovieCard'
 
 export default function ItemList({ title, movies }: ItemListProps) {
   return (
@@ -7,7 +7,7 @@ export default function ItemList({ title, movies }: ItemListProps) {
       <span className='text-xl font-semibold text-white'>{title}</span>
       <div className='grid grid-cols-6 xxl:grid-cols-7 gap-2 xxl:gap-12 mt-4'>
         {movies.map((movie, index) => (
-          <Item key={index} movie={movie} />
+          <MovieCard key={index} movie={movie} />
         ))}
       </div>
     </div>

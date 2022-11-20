@@ -1,10 +1,7 @@
 import WebLogo from '../public/logo.png'
 import Image from 'next/image'
-import Searchbar from '../components/Searchbar'
-import CardList from '../components/CardList'
-import ItemList from '../components/ItemList'
-import { useEffect, useState } from 'react'
-import type { TmdbMovieI } from '../types/tmdb'
+import { Searchbar, ScrollableCardList, MovieList } from '../components'
+import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { fetchTmdbMovies, tmdbMoviesState } from '../features/movie/tmdbSlice'
 
@@ -24,10 +21,10 @@ export default function Home() {
       <div className='py-12 flex flex-col items-center'>
         <Image src={WebLogo} alt='logo' className='w-44 md:w-80' />
         <Searchbar />
-        <CardList />
-        <CardList />
+        <ScrollableCardList />
+        <ScrollableCardList />
         {tmdbMovies && (
-          <ItemList title='Popular from TMDB' movies={tmdbMovies} />
+          <MovieList title='Popular from TMDB' movies={tmdbMovies} />
         )}
       </div>
     </div>
