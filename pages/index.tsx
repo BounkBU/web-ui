@@ -3,15 +3,22 @@ import Image from 'next/image'
 import { Searchbar, ScrollableCardList, MovieList } from '../components'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { fetchTmdbMovies, tmdbMoviesState } from '../features/movie/tmdbSlice'
+import {
+  fetchTmdbMovies,
+  fetchTmdbSeries,
+  tmdbMoviesState,
+  tmdbSeriesState,
+} from '../features/movie/tmdbSlice'
 
 export default function Home() {
   const dispatch = useAppDispatch()
   const tmdbMovies = useAppSelector(tmdbMoviesState)
+  const tmdbSeries = useAppSelector(tmdbSeriesState)
 
   useEffect(() => {
     async function onFetchTmdbMovies() {
       dispatch(fetchTmdbMovies({ page: 1 }))
+      dispatch(fetchTmdbSeries({ page: 1 }))
     }
     onFetchTmdbMovies()
   }, [dispatch])
@@ -24,7 +31,18 @@ export default function Home() {
         <ScrollableCardList title='Top 10 Popular Search Movies' />
         <ScrollableCardList title='Top 10 Popular Playlists' />
         {tmdbMovies && (
-          <MovieList title='Popular Movies from TMDB' movies={tmdbMovies} />
+          <MovieList
+            title='Popular Movies from TMDB'
+            movies={tmdbMovies}
+            isMovie={true}
+          />
+        )}
+        {tmdbSeries && (
+          <MovieList
+            title='Popular Series from TMDB'
+            movies={tmdbSeries}
+            isMovie={false}
+          />
         )}
       </div>
     </div>

@@ -1,15 +1,21 @@
-import type { TmdbMovieI } from '../types/tmdb'
+import type { TmdbI } from '../types/tmdb'
 import Image from 'next/image'
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function MovieCard({ movie }: { movie: TmdbMovieI }) {
+export default function MovieCard({
+  movie,
+  isMovie,
+}: {
+  movie: TmdbI
+  isMovie: boolean
+}) {
   const [isHovering, setIsHovered] = useState(false)
   const onMouseEnter = () => setIsHovered(true)
   const onMouseLeave = () => setIsHovered(false)
 
   return (
-    <Link href={`/movie/${movie.id}`}>
+    <Link href={`/${isMovie ? 'movie' : 'serie'}/${movie.id}`}>
       <div
         className='flex items-center justify-center shadow-lg border border-zinc-800 rounded-md'
         onMouseEnter={onMouseEnter}
