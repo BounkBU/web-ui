@@ -75,7 +75,7 @@ export default function MovieDetail() {
                       backgroundPadding={6}
                       styles={buildStyles({
                         textSize: '26px',
-                        backgroundColor: '#354b52',
+                        backgroundColor: '#002f3f',
                         textColor: '#fff',
                         pathColor: '#fffc2d',
                         trailColor: '#ddd',
