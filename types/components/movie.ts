@@ -1,6 +1,6 @@
 import type { TmdbMovieI } from '../tmdb'
 
-export interface ItemListProps {
+export interface MovieListProps {
   title: string
   movies: TmdbMovieI[]
 }

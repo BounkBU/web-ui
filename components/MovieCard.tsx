@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function Item({ movie }: { movie: TmdbMovieI }) {
+export default function MovieCard({ movie }: { movie: TmdbMovieI }) {
   const [isHovering, setIsHovered] = useState(false)
   const onMouseEnter = () => setIsHovered(true)
   const onMouseLeave = () => setIsHovered(false)

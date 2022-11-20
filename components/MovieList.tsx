@@ -1,7 +1,7 @@
-import type { ItemListProps } from '../types/components/item'
+import type { MovieListProps } from '../types/components/movie'
 import MovieCard from './MovieCard'
 
-export default function ItemList({ title, movies }: ItemListProps) {
+export default function MovieList({ title, movies }: MovieListProps) {
   return (
     <div className='w-[90%] mx-auto my-8'>
       <span className='text-xl font-semibold text-white'>{title}</span>

@@ -21,10 +21,10 @@ export default function Home() {
       <div className='py-12 flex flex-col items-center'>
         <Image src={WebLogo} alt='logo' className='w-44 md:w-80' />
         <Searchbar />
-        <ScrollableCardList />
-        <ScrollableCardList />
+        <ScrollableCardList title='Top 10 Popular Search Movies' />
+        <ScrollableCardList title='Top 10 Popular Playlists' />
         {tmdbMovies && (
-          <MovieList title='Popular from TMDB' movies={tmdbMovies} />
+          <MovieList title='Popular Movies from TMDB' movies={tmdbMovies} />
         )}
       </div>
     </div>
