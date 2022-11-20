@@ -1,6 +1,7 @@
-import type { TmdbMovieI } from '../tmdb'
+import type { TmdbI } from '../tmdb'
 
 export interface MovieListProps {
   title: string
-  movies: TmdbMovieI[]
+  movies: TmdbI[]
+  isMovie: boolean
 }
