@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import Searchbar from '../../components/Searchbar'
 import {
@@ -15,6 +15,9 @@ import * as TbIcons from 'react-icons/tb'
 import 'react-circular-progressbar/dist/styles.css'
 import PlaylistCard from '../../components/PlaylistCard'
 import { Link as SmoothLink } from 'react-scroll'
+import { ICreateSearchMovieFilter } from '../../types/movie'
+import { TmdbMovieDetailI } from '../../types/tmdb'
+import client from '../../client'
 
 export default function MovieDetail() {
   const router = useRouter()
@@ -24,7 +27,19 @@ export default function MovieDetail() {
 
   useEffect(() => {
     async function onFetchTmdbMovieDetail() {
-      dispatch(fetchTmdbMovieDetail({ id: Number(id) }))
+      const response = await dispatch(fetchTmdbMovieDetail({ id: Number(id) }))
+      const payload = response.payload as TmdbMovieDetailI
+      const body: ICreateSearchMovieFilter = {
+        tmdb_movie_id: payload.tmdb_id,
+        title: payload.title,
+        overview: payload.overview,
+        genres: payload.genres,
+        image_path: payload.image_path,
+        release_date: payload.release_date,
+        rating: payload.rating,
+      }
+      const response2 = await client.post('/movies', body)
+      console.log(response2)
     }
     onFetchTmdbMovieDetail()
   }, [dispatch, id])
