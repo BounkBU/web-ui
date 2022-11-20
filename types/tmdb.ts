@@ -22,3 +22,8 @@ export interface TmdbMovieDetailI {
   release_date: string
   rating: number
 }
+
+export interface ITmdbMovieSlice {
+  movies: TmdbMovieI[]
+  movieDetail: TmdbMovieDetailI | null
+}

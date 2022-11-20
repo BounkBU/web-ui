@@ -1,17 +1,14 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../../app/store'
 import client from '../../client'
 import type {
   ITmdbMovieDetailFilter,
   ITmdbMovieFilter,
+  ITmdbMovieSlice,
   TmdbMovieDetailI,
   TmdbMovieI,
 } from '../../types/tmdb'
-
-interface ITmdbMovieSlice {
-  movies: TmdbMovieI[]
-  movieDetail: TmdbMovieDetailI | null
-}
 
 const initialState: ITmdbMovieSlice = {
   movies: [],
