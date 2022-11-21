@@ -1,3 +1,15 @@
+export interface Result {
+  topic: string
+  movies: Movie[]
+}
+
+export interface Movie {
+  id: number
+  title: string
+  poster_path: string
+  isMovie: boolean
+}
+
 export interface ICreateSearchMovieFilter {
   tmdb_movie_id: number
   title: string

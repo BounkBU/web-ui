@@ -1,15 +1,9 @@
-import type { TmdbI } from '../types/tmdb'
 import Image from 'next/image'
 import { useState } from 'react'
 import Link from 'next/link'
+import type { MovieCardProps } from '../types/components/card'
 
-export default function MovieCard({
-  movie,
-  isMovie,
-}: {
-  movie: TmdbI
-  isMovie: boolean
-}) {
+export default function MovieCard({ movie, isMovie }: MovieCardProps) {
   const [isHovering, setIsHovered] = useState(false)
   const onMouseEnter = () => setIsHovered(true)
   const onMouseLeave = () => setIsHovered(false)

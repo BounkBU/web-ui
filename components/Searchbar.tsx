@@ -1,13 +1,8 @@
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
+import type { SearchbarProps } from '../types/components/searchbar'
 
-export default function Searchbar({
-  defaultValue,
-  disabled,
-}: {
-  defaultValue?: string
-  disabled?: boolean
-}) {
+export default function Searchbar({ defaultValue, disabled }: SearchbarProps) {
   const router = useRouter()
   const [searchValue, setSearchValue] = useState(defaultValue || '')
 

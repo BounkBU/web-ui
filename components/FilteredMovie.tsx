@@ -1,14 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Movie } from '../types/components/movie'
+import type { FilteredMovieProps } from '../types/components/movie'
 
-export default function FilteredMovie({
-  movie,
-  isMovie,
-}: {
-  movie: Movie
-  isMovie: boolean
-}) {
+export default function FilteredMovie({ movie, isMovie }: FilteredMovieProps) {
   return (
     <Link
       href={`/${isMovie ? 'movie' : 'serie'}/${movie.id}`}
