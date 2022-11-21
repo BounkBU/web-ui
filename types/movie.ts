@@ -1,3 +1,8 @@
+export interface SearchResults {
+  search: string
+  results: Result[]
+}
+
 export interface Result {
   topic: string
   movies: Movie[]
