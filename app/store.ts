@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import tmdbSlice from '../features/movie/tmdbSlice'
+import movieSlice from '../features/movie/movieSlice'
 
 export const store = configureStore({
   reducer: {
     tmdb: tmdbSlice,
+    movie: movieSlice,
   },
 })
 
