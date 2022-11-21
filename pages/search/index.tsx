@@ -77,7 +77,13 @@ export default function Search() {
           <Image src={WebLogo} alt='logo' className='w-32' />
         </Link>
         <div className='w-[900px] h-[110px] flex justify-end'>
-          {q && <Searchbar defaultValue={String(q)} disabled />}
+          {q && (
+            <Searchbar
+              defaultValue={String(q)}
+              disabled
+              isShowResults={false}
+            />
+          )}
         </div>
       </div>
       <div className='max-w-[1360px] flex mx-auto py-24 text-white'>

@@ -9,6 +9,7 @@ import {
   tmdbMoviesState,
   tmdbSeriesState,
 } from '../features/movie/tmdbSlice'
+import { fetchSearchResultMovies } from '../features/movie/movieSlice'
 
 export default function Home() {
   const dispatch = useAppDispatch()
@@ -19,6 +20,7 @@ export default function Home() {
     async function onFetchTmdbMovies() {
       dispatch(fetchTmdbMovies({ page: 1 }))
       dispatch(fetchTmdbSeries({ page: 1 }))
+      dispatch(fetchSearchResultMovies())
     }
     onFetchTmdbMovies()
   }, [dispatch])
@@ -27,7 +29,7 @@ export default function Home() {
     <div className='min-h-screen bg-zinc-900'>
       <div className='py-12 flex flex-col items-center'>
         <Image src={WebLogo} alt='logo' className='w-44 md:w-80' />
-        <Searchbar />
+        <Searchbar isShowResults={true} />
         <ScrollableCardList title='Top 10 Popular Search Movies' />
         <ScrollableCardList title='Top 10 Popular Playlists' />
         {tmdbMovies && (

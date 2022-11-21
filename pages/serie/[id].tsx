@@ -35,7 +35,7 @@ export default function SerieDetail() {
           <Image src={WebLogo} alt='logo' className='w-44' />
         </Link>
         <div className='w-[900px] h-[110px] flex justify-end'>
-          <Searchbar />
+          <Searchbar isShowResults={true} />
         </div>
       </div>
       {tmdbSerie && (
