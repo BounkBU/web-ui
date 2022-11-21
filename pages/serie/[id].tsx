@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import Searchbar from '../../components/Searchbar'
 import {
   fetchTmdbSerieDetail,
   thdbSerieDetailState,
@@ -13,9 +12,8 @@ import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 import * as GiIcons from 'react-icons/gi'
 import * as TbIcons from 'react-icons/tb'
 import 'react-circular-progressbar/dist/styles.css'
-import PlaylistCard from '../../components/PlaylistCard'
 import { Link as SmoothLink } from 'react-scroll'
-import { SerieCard } from '../../components'
+import { SerieCard, PlaylistCard, Searchbar } from '../../components'
 
 export default function SerieDetail() {
   const router = useRouter()

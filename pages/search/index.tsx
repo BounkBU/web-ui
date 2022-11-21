@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import client from '../../client'
 import { FilteredMovie, FilteredTopic, Searchbar } from '../../components'
 import WebLogo from '../../public/logo.png'
-import type { Movie, Result } from '../../types/components/movie'
+import type { Movie, Result } from '../../types/movie'
 
 export default function Search() {
   const router = useRouter()
@@ -86,7 +86,7 @@ export default function Search() {
             topic='All'
             resultLength={allMoviesLength || 0}
             active={selectedTopic === 'All'}
-            onClickHandle={() => setSelectedTopic('All')}
+            onClickHandler={() => setSelectedTopic('All')}
           />
           {filteredMovies &&
             filteredMovies.map((result, index) => (
@@ -95,7 +95,7 @@ export default function Search() {
                 topic={result.topic}
                 resultLength={result.movies.length}
                 active={selectedTopic === result.topic}
-                onClickHandle={() => setSelectedTopic(result.topic)}
+                onClickHandler={() => setSelectedTopic(result.topic)}
               />
             ))}
         </div>

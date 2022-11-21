@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Fragment, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import Searchbar from '../../components/Searchbar'
+import { Searchbar, PlaylistCard } from '../../components'
 import {
   fetchTmdbMovieDetail,
   thdbMovieDetailState,
@@ -13,7 +13,6 @@ import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 import * as GiIcons from 'react-icons/gi'
 import * as TbIcons from 'react-icons/tb'
 import 'react-circular-progressbar/dist/styles.css'
-import PlaylistCard from '../../components/PlaylistCard'
 import { Link as SmoothLink } from 'react-scroll'
 import { ICreateSearchMovieFilter } from '../../types/movie'
 import { TmdbMovieDetailI } from '../../types/tmdb'
